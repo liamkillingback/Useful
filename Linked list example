@@ -21,6 +21,7 @@ int main(void)
 
     if (list == NULL)
     {
+        free(list);
         return 1;
     }
     printf("Enter new number to add to list: \n");
