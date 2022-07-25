@@ -16,6 +16,7 @@ node* list = NULL;
 
 int main(void)
 {
+    //initializes the list with the number 5
     list = create(5);
     int n = 0;
 
