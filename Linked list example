@@ -26,8 +26,10 @@ int main(void)
     }
     printf("Enter new number to add to list: \n");
     scanf("%i", &n);
+    //checks current number of elements in the list
     listcount();
     insertNode(n);
+    //checks updated number of elements in the list
     listcount();
 
     while(list != NULL)
