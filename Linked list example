@@ -1,0 +1,84 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+typedef struct node
+{
+    int number;
+    struct node *next;
+}
+node;
+
+node* create(int n);
+node* insertNode(int n);
+void listcount(void);
+
+node* list = NULL;
+
+int main(void)
+{
+    list = create(5);
+    int n = 0;
+
+    if (list == NULL)
+    {
+        return 1;
+    }
+    printf("Enter new number to add to list: \n");
+    scanf("%i", &n);
+    listcount();
+    insertNode(n);
+    listcount();
+
+    while(list != NULL)
+    {
+        node *temp = list->next;
+        free(list);
+        list = temp;
+    }
+
+    return 0;
+
+}
+
+node* insertNode(int n)
+{
+    node* new = malloc(sizeof(node));
+
+    if (new == NULL)
+    {
+        free(new);
+        exit(1);
+    }
+    new->number = n;
+    new->next = list->next;
+    list->next = new;
+
+    if(new == NULL)
+    {
+        free(list);
+        free(new);
+        exit(1);
+    }
+    return new;
+}
+
+void listcount(void)
+{
+    int counter = 0;
+    for (node* tmp = list; tmp != NULL; tmp = tmp->next)
+    {
+        counter++;
+    }
+    printf("Number of elements in linked list: %i\n", counter);
+
+    return;
+}
+
+node* create(int n)
+{
+    node* new = malloc(sizeof(node));
+    new->number = n;
+    new->next = NULL;
+
+    return new;
+}
