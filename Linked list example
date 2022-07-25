@@ -54,12 +54,6 @@ node* insertNode(int n)
     new->next = list->next;
     list->next = new;
 
-    if(new == NULL)
-    {
-        free(list);
-        free(new);
-        exit(1);
-    }
     return new;
 }
 
