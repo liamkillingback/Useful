@@ -9,7 +9,7 @@ from googleapiclient.discovery import build
 root = tk.Tk()
 apps = []
 appNames = []
-root.title("Wurm'n and Study'n")
+root.title("Super file launcher 9000")
 
 # Checks if there is already saved programs/Url's
 if os.path.isfile('save.txt'):
