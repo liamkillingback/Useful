@@ -19,7 +19,7 @@ will open up everything that you have added to the list. Files, exes and website
 # Clear Cache:
 will clear file memory as to start a new list of programs/websites
 
-notes:
+# notes:
 -You will need to add your own API in order for the program to run, as it is used to fetch youtube titles. Otherwise you can delete the reletive functions if you do not want it
 
 -will add two .txt files to where the app is located, as to save the directories and file names
