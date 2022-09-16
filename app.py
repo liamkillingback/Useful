@@ -68,28 +68,25 @@ def WebPopUp():
     def addURL():
         # If the url is a youtube video, it will parse the video name into the widget, rather than the url
         webtitle = entry.get()
+        # Verifies user submittion, then closes the popup window
+        
         if "youtube" in entry.get():
             video_id = entry.get()[len("https://www.youtube.com/watch?v="):]
-        else:
-            video_id = entry.get()
-        print(webtitle)
-  
-        # creating youtube resource object 
-        youtube = build('youtube','v3',developerKey='Enter API here')
-  
-        # retrieve youtube video results
-        video_request=youtube.videos().list(
+            # creating youtube resource object 
+            youtube = build('youtube','v3',developerKey='Enter your API here')
+            # retrieve youtube video results
+            video_request=youtube.videos().list(
             part='snippet,statistics',
             id=video_id
-        )
-  
-        video_response = video_request.execute()
-    
-        title = video_response['items'][0]['snippet']['title']
-        # Verifies user submittion, then closes the popup window
+            )
+            video_response = video_request.execute()
+            video_response = video_request.execute()
+            title = video_response['items'][0]['snippet']['title']
+            appNames.append(title)
+        else:
+            appNames.append(webtitle)
+            apps.append(webtitle)
         tk.messagebox.showinfo('Submitted!', 'Submitted')
-        apps.append(webtitle)
-        appNames.append(title)
         top.destroy()
 
     top = Toplevel(root)
