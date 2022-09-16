@@ -73,7 +73,7 @@ def WebPopUp():
             video_id = entry.get()
   
         # creating youtube resource object 
-        youtube = build('youtube','v3',developerKey='AIzaSyBygHcjC8Lz9XOL8DoB3Ivc8mySSYRna4g')
+        youtube = build('youtube','v3',developerKey='insert API here')
   
         # retrieve youtube video results
         video_request=youtube.videos().list(
