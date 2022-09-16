@@ -9,7 +9,7 @@ from googleapiclient.discovery import build
 root = tk.Tk()
 apps = []
 appNames = []
-root.title("Super file launcher 9000")
+root.title("Super Opener 9000")
 
 # Checks if there is already saved programs/Url's
 if os.path.isfile('save.txt'):
@@ -67,13 +67,15 @@ def clearCache():
 def WebPopUp():
     def addURL():
         # If the url is a youtube video, it will parse the video name into the widget, rather than the url
+        webtitle = entry.get()
         if "youtube" in entry.get():
             video_id = entry.get()[len("https://www.youtube.com/watch?v="):]
         else:
             video_id = entry.get()
+        print(webtitle)
   
         # creating youtube resource object 
-        youtube = build('youtube','v3',developerKey='insert API here')
+        youtube = build('youtube','v3',developerKey='Enter API here')
   
         # retrieve youtube video results
         video_request=youtube.videos().list(
@@ -86,7 +88,7 @@ def WebPopUp():
         title = video_response['items'][0]['snippet']['title']
         # Verifies user submittion, then closes the popup window
         tk.messagebox.showinfo('Submitted!', 'Submitted')
-        apps.append(video_id)
+        apps.append(webtitle)
         appNames.append(title)
         top.destroy()
 
