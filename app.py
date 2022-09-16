@@ -80,7 +80,6 @@ def WebPopUp():
             id=video_id
             )
             video_response = video_request.execute()
-            video_response = video_request.execute()
             title = video_response['items'][0]['snippet']['title']
             appNames.append(title)
         else:
